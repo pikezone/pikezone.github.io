@@ -2,7 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://pikezone.github.io/</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
+  <url>
+    <loc>https://pikezone.github.io/#productos</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://pikezone.github.io/#modalidades</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://pikezone.github.io/#envios</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://pikezone.github.io/#contacto</loc>
+    <priority>0.60</priority>
+  </url>
 </urlset>
+
 
