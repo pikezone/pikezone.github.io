@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pike Zone Shop - Tienda de pesca deportiva</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Tienda de pesca especializada en lucio, bass y depredadores. Señuelos, cañas, carretes y accesorios.">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      background: #0b1120;
+      color: #e5e7eb;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    header {
+      background: radial-gradient(circle at top, #22c55e 0, #020617 45%);
+      padding: 24px 16px 32px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .contenedor {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 12px;
+    }
+
+    /* NAVBAR */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .logo {
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 18px;
+    }
+
+    .logo span {
+      color: #22c55e;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 999px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(15, 23, 42, 0.8);
+      color: #bbf7d0;
+    }
+
+    .btn-whatsapp {
+      font-size: 13px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid #22c55e;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-whatsapp span {
+      font-size: 16px;
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    h1 {
+      font-size: clamp(28px, 5vw, 40px);
+      margin: 0 0 10px;
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: #cbd5f5;
+      max-width: 480px;
+      margin-bottom: 16px;
+    }
+
+    .hero-datos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      color: #a5b4fc;
+      margin-bottom: 20px;
+    }
+
+    .hero-datos span {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .hero-botones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .btn-principal,
+    .btn-secundario {
+      border-radius: 999px;
+      padding: 9px 16px;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-principal {
+      background: #22c55e;
+      color: #022c22;
+      font-weight: 600;
+    }
+
+    .btn-principal:hover {
+      filter: brightness(1.05);
+    }
+
+    .btn-secundario {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: #e5e7eb;
+    }
+
+    .btn-secundario:hover {
+      background: rgba(15, 23, 42, 1);
+    }
+
+    .mini-texto {
+      font-size: 12px;
+      color: #9ca3af;
+    }
+
+    .hero-card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 18px;
+      padding: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
+      font-size: 13px;
+    }
+
+    .hero-card-titulo {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #bbf7d0;
+    }
+
+    .hero-etiquetas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .hero-etiquetas span {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    /* SECCIONES GENERALES */
+    main {
+      padding: 28px 0 40px;
+    }
+
+    section {
+      padding: 20px 0;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    section h2 {
+      font-size: 22px;
+      margin: 0 0 6px;
+    }
+
+    section p {
+      font-size: 14px;
+      color: #d1d5db;
+      margin: 0 0 12px;
+    }
+
+    .seccion-header {
+      margin-bottom: 14px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: #9ca3af;
+      margin-bottom: 6px;
+    }
+
+    /* CATEGORÍAS */
+    .grid-categorias {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 14px;
+    }
+
+    .categoria {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 14px;
+      padding: 12px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .categoria h3 {
+      margin: 0 0 4px;
+      font-size: 15px;
+      color: #e5e7eb;
+    }
+
+    .categoria small {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .categoria ul {
+      margin: 8px 0 0;
+      padding-left: 16px;
+      font-size: 13px;
+      color: #d1d5db;
+    }
+
+    /* PRODUCTOS DESTACADOS */
+    .grid-productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+    }
+
+    .producto {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 14px;
+      padding: 12px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .producto-nombre {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .producto-etiquetas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .producto-etiquetas span {
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .precio {
+      font-weight: 700;
+      font-size: 16px;
+      color: #4ade80;
+    }
+
+    .nota-stock {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .btn-producto {
+      margin-top: 4px;
+      font-size: 13px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: transparent;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .btn-producto:hover {
+      background: rgba(15, 23, 42, 1);
+    }
+
+    /* ENVÍOS / INFO */
+    .info-envios {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      font-size: 13px;
+    }
+
+    .info-card {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 14px;
+      padding: 12px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .info-card strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    /* CONTACTO */
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .contacto-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contacto-datos ul {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 0;
+    }
+
+    .contacto-datos li {
+      margin-bottom: 6px;
+    }
+
+    .contacto-datos span {
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .horario {
+      font-size: 13px;
+      color: #d1d5db;
+    }
+
+    footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      font-size: 12px;
+      text-align: center;
+      padding: 12px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="contenedor">
+      <div class="nav">
+        <div class="logo">
+          Pike<span>Zone</span> Shop
+        </div>
+        <div class="nav-links">
+          <a href="#productos">Productos</a>
+          <a href="#categorias">Modalidades</a>
+          <a href="#envios">Envíos</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+        <a class="btn-whatsapp" href="https://wa.me/34620454478" target="_blank" rel="noopener">
+          <span>📱</span> WhatsApp
+        </a>
+      </div>
+
+      <div class="hero">
+        <div>
+          <h1>Señuelos y material para pesca de depredadores</h1>
+          <p class="hero-sub">
+            Especializados en lucio, bass y otros depredadores. Jerkbaits, vinilos, crankbaits,
+            cañas, carretes y todo lo que necesitas para tu próxima salida al pantano.
+          </p>
+
+          <div class="hero-datos">
+            <span>Lucio · Black Bass · Spinning · Casting</span>
+            <span>Asesoramiento por WhatsApp</span>
+            <span>Envíos a toda España</span>
+          </div>
+
+          <div class="hero-botones">
+            <a href="#productos" class="btn-principal">Ver productos destacados →</a>
+            <a href="#contacto" class="btn-secundario">Pedir por WhatsApp</a>
+          </div>
+
+          <div class="mini-texto">
+            Si buscas algo concreto (modelo, gramos, color, etc.) escríbeme y te ayudo a elegir.
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-titulo">Ofertas de lanzamiento</div>
+          <div>
+            <p style="margin: 0 0 6px;">
+              🔥 Pack jerkbaits + crankbaits ideal para lucio:
+            </p>
+            <ul style="margin: 0 0 6px 18px; padding: 0;">
+              <li>3 Jerkbaits 100–130 mm</li>
+              <li>2 Crankbaits para buscar orillas y reculas</li>
+              <li>2 Vinilos plomados para zonas profundas</li>
+            </ul>
+            <p style="margin: 0 0 4px;">
+              <strong>Precio pack:</strong> 24,99 €  
+            </p>
+            <p style="margin: 0;" class="mini-texto">
+              Cambia los señuelos del pack según tu gusto. Escríbeme y lo ajustamos.
+            </p>
+          </div>
+
+          <div class="hero-etiquetas">
+            <span>#lucio</span>
+            <span>#jerkbaits</span>
+            <span>#vinilos</span>
+            <span>#pikezone</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="contenedor">
+      <!-- CATEGORÍAS / MODALIDADES -->
+      <section id="categorias">
+        <div class="seccion-header">
+          <div class="badge">Modalidades</div>
+          <h2>En qué estamos especializados</h2>
+          <p>Material seleccionado para las técnicas que más usamos en pantanos y ríos.</p>
+        </div>
+
+        <div class="grid-categorias">
+          <div class="categoria">
+            <h3>Lucio</h3>
+            <small>Embalses, ríos y zonas profundas</small>
+            <ul>
+              <li>Jerkbaits suspendidos</li>
+              <li>Crankbaits de media y gran profundidad</li>
+              <li>Vinilos shad con cabezas plomadas</li>
+            </ul>
+          </div>
+
+          <div class="categoria">
+            <h3>Black Bass</h3>
+            <small>Pesca fina y zonas de cobertura</small>
+            <ul>
+              <li>Vinilos tipo cangrejo y lombriz</li>
+              <li>Jigs, spinnerbaits y chatter</li>
+              <li>Topwaters: paseantes y poppers</li>
+            </ul>
+          </div>
+
+          <div class="categoria">
+            <h3>Spinning general</h3>
+            <small>Equipo equilibrado para empezar o mejorar</small>
+            <ul>
+              <li>Cañas 5–25 g y 7–28 g</li>
+              <li>Carretes tamaño 2500–4000</li>
+              <li>Trenzados, bajos y grapas</li>
+            </ul>
+          </div>
+
+          <div class="categoria">
+            <h3>Accesorios</h3>
+            <small>Todo lo que hace falta en la mochila</small>
+            <ul>
+              <li>Alicates, cajas, mosquetones</li>
+              <li>Fluorocarbono para bajos</li>
+              <li>Correas, enganches y más</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCTOS DESTACADOS -->
+      <section id="productos">
+        <div class="seccion-header">
+          <div class="badge">Destacados</div>
+          <h2>Productos destacados</h2>
+          <p>Ejemplos de lo que trabajamos. Puedes cambiar nombres, precios y descripción a tu gusto.</p>
+        </div>
+
+        <div class="grid-productos">
+          <div class="producto">
+            <div>
+              <div class="producto-nombre">Pack 3 jerkbaits 100–120 mm</div>
+              <p style="margin: 4px 0 6px;">
+                Colores ideales para aguas claras y embalses presionados. Perfectos para lucio a medias aguas.
+              </p>
+              <div class="producto-etiquetas">
+                <span>Suspending</span>
+                <span>Profundidad 1–2,5 m</span>
+                <span>Lucio</span>
+              </div>
+            </div>
+            <div>
+              <div class="precio">14,99 €</div>
+              <div class="nota-stock">Stock limitado · Consulta colores disponibles</div>
+              <a class="btn-producto" href="https://wa.me/34620454478?text=Hola%2C%20quiero%20info%20del%20pack%203%20jerkbaits" target="_blank">
+                Pedir por WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <div class="producto">
+            <div>
+              <div class="producto-nombre">Pack vinilos shad para lucio</div>
+              <p style="margin: 4px 0 6px;">
+                Vinilos entre 10 y 15 cm, montados con cabeza plomada. Para pescar despacio pegado al fondo.
+              </p>
+              <div class="producto-etiquetas">
+                <span>Fondo</span>
+                <span>Lentas recuperaciones</span>
+                <span>Invierno / aguas frías</span>
+              </div>
+            </div>
+            <div>
+              <div class="precio">12,50 €</div>
+              <div class="nota-stock">Incluye 5 cuerpos + 3 cabezas plomadas</div>
+              <a class="btn-producto" href="https://wa.me/34620454478?text=Hola%2C%20quiero%20info%20del%20pack%20vinilos%20shad" target="_blank">
+                Pedir pack personalizado
+              </a>
+            </div>
+          </div>
+
+          <div class="producto">
+            <div>
+              <div class="producto-nombre">Equipo spinning “todo terreno”</div>
+              <p style="margin: 4px 0 6px;">
+                Caña 7–28 g + carrete 4000 + trenzado + bajo. Montado y listo para salir a pescar.
+              </p>
+              <div class="producto-etiquetas">
+                <span>Spinning</span>
+                <span>Lucio / bass</span>
+                <span>Equipo montado</span>
+              </div>
+            </div>
+            <div>
+              <div class="precio">Desde 89,99 €</div>
+              <div class="nota-stock">Elige nivel: iniciación, medio o avanzado</div>
+              <a class="btn-producto" href="https://wa.me/34620454478?text=Hola%2C%20quiero%20info%20del%20equipo%20spinning%20todo%20terreno" target="_blank">
+                Ver opciones y precios
+              </a>
+            </div>
+          </div>
+
+          <div class="producto">
+            <div>
+              <div class="producto-nombre">Cajas montadas “lista para ir al pantano”</div>
+              <p style="margin: 4px 0 6px;">
+                Te preparo una caja con señuelos elegidos según dónde sueles pescar (tipo de pantano, claridad, época).
+              </p>
+              <div class="producto-etiquetas">
+                <span>Personalizado</span>
+                <span>Lucio/Bass</span>
+                <span>Consejo incluido</span>
+              </div>
+            </div>
+            <div>
+              <div class="precio">Desde 29,99 €</div>
+              <div class="nota-stock">Me dices presupuesto y la montamos</div>
+              <a class="btn-producto" href="https://wa.me/34620454478?text=Hola%2C%20quiero%20una%20caja%20montada%20lista%20para%20ir%20al%20pantano" target="_blank">
+                Hablar y montarla
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="bajopedido">
+  <div class="seccion-header">
+    <div class="badge">Bajo pedido</div>
+    <h2>Actualmente trabajamos TODO bajo pedido</h2>
+    <p>
+      Ahora mismo toda la tienda funciona bajo pedido.  
+      Si buscas cualquier caña, carrete, señuelo o accesorio, te lo consigo en 24–72h según proveedor.
+    </p>
+  </div>
+
+  <div class="info-envios">
+    <div class="info-card">
+      <strong>Cañas y carretes</strong>
+      <p>
+        Shimano, Daiwa, Abu Garcia, Okuma…  
+        Dime el modelo exacto y te digo precio y disponibilidad.
+      </p>
+    </div>
+
+    <div class="info-card">
+      <strong>Señuelos y colores específicos</strong>
+      <p>
+        Jerkbaits, vinilos, crankbaits, cucharillas, tallas concretas, colores especiales, pesos exactos.
+      </p>
+    </div>
+
+    <div class="info-card">
+      <strong>Accesorios y consumibles</strong>
+      <p>
+        Trenzados, fluorocarbono, anillas, poteras, cajas, herramientas, terminal tackle, etc.
+      </p>
+    </div>
+
+    <div class="info-card">
+      <strong>Presupuestos personalizados</strong>
+      <p>
+        Si tienes un presupuesto concreto, te busco las mejores opciones calidad-precio según tu pesca.
+      </p>
+    </div>
+  </div>
+
+  <br />
+
+  <a class="btn-principal" href="https://wa.me/34620454478" target="_blank" style="display:inline-block;">
+    Pedir algo bajo pedido →
+  </a>
+</section>
+      <!-- ENVÍOS / INFO -->
+      <section id="envios">
+        <div class="seccion-header">
+          <div class="badge">Información</div>
+          <h2>Envíos, pagos y asesoramiento</h2>
+          <p>Todo claro y sencillo, como si hablases con un colega de pesca.</p>
+        </div>
+
+        <div class="info-envios">
+          <div class="info-card">
+            <strong>Envíos</strong>
+            <p>
+              Envíos a toda España (Península). Gastos según peso y volumen del pedido.
+              Para pedidos grandes o varias cajas, pregúntame y ajustamos.
+            </p>
+          </div>
+          <div class="info-card">
+            <strong>Formas de pago</strong>
+            <p>
+              Bizum, transferencia bancaria y, si hace falta, pago contra reembolso
+              (consulta condiciones). Siempre te mando foto del pedido antes de enviarlo.
+            </p>
+          </div>
+          <div class="info-card">
+            <strong>Asesoramiento</strong>
+            <p>
+              ¿No sabes qué elegir? Dime dónde pescas (pantano/río), especie que buscas y presupuesto.
+              Te recomiendo señuelos y equipo pensando en eso, no en vender por vender.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACTO -->
+      <section id="contacto">
+        <div class="seccion-header">
+          <div class="badge">Contacto</div>
+          <h2>Habla directo conmigo</h2>
+          <p>Para pedidos, dudas o montar un equipo completo, escríbeme sin problema.</p>
+        </div>
+
+        <div class="contacto-grid">
+          <div class="contacto-datos">
+            <ul>
+              <li><span>WhatsApp:</span> <a href="https://wa.me/34620454478" target="_blank">+34 620 454 478</a></li>
+              <li><span>Email:</span> <a href="mailto:pikezoneshop@gmail.com">pikezoneshop@gmail.com</a></li>
+              <li><span>Instagram:</span> @pikezones</li>
+              <li><span>Zona:</span> Guadalajara y alrededores · Embalses y ríos de la zona </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="horario">
+              <strong>Horario orientativo</strong><br />
+              Respondo normalmente:
+              <ul>
+                <li>Lunes a viernes: 09:30 - 14.00 / 17:00 - 20:30</li>
+                <li>Sabados: 10:00 - 14:00</li>
+              </ul>
+       
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> Pike Zone Shop · Pesca de depredadores
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
