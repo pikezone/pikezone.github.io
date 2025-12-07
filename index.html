@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Tienda de pesca especializada en lucio, bass y depredadores. Señuelos, cañas, carretes y accesorios.">
   <style>
+      <style>
     * {
       box-sizing: border-box;
     }
@@ -13,7 +14,7 @@
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       margin: 0;
-      background: #0b1120;
+      background: #0b0f19; /* fondo muy oscuro */
       color: #e5e7eb;
     }
 
@@ -22,7 +23,7 @@
     }
 
     header {
-      background: radial-gradient(circle at top, #22c55e 0, #020617 45%);
+      background: radial-gradient(circle at top, #f97316 0, #111827 45%);
       padding: 24px 16px 32px;
       border-bottom: 1px solid rgba(148, 163, 184, 0.3);
     }
@@ -47,10 +48,11 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       font-size: 18px;
+      color: #f97316;
     }
 
     .logo span {
-      color: #22c55e;
+      color: #fed7aa; /* naranja clarito */
     }
 
     .nav-links {
@@ -67,8 +69,8 @@
     }
 
     .nav-links a:hover {
-      background: rgba(15, 23, 42, 0.8);
-      color: #bbf7d0;
+      background: rgba(15, 23, 42, 0.9);
+      color: #fed7aa;
     }
 
     .btn-whatsapp {
@@ -80,6 +82,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      background: rgba(15, 23, 42, 0.9);
     }
 
     .btn-whatsapp span {
@@ -106,11 +109,12 @@
     h1 {
       font-size: clamp(28px, 5vw, 40px);
       margin: 0 0 10px;
+      color: #f9fafb;
     }
 
     .hero-sub {
       font-size: 15px;
-      color: #cbd5f5;
+      color: #e5e7eb;
       max-width: 480px;
       margin-bottom: 16px;
     }
@@ -120,15 +124,15 @@
       flex-wrap: wrap;
       gap: 12px;
       font-size: 13px;
-      color: #a5b4fc;
+      color: #fed7aa;
       margin-bottom: 20px;
     }
 
     .hero-datos span {
       padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.7);
-      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
     }
 
     .hero-botones {
@@ -152,8 +156,8 @@
     }
 
     .btn-principal {
-      background: #22c55e;
-      color: #022c22;
+      background: #f97316;
+      color: #111827;
       font-weight: 600;
     }
 
@@ -162,8 +166,8 @@
     }
 
     .btn-secundario {
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(248, 250, 252, 0.2);
       color: #e5e7eb;
     }
 
@@ -177,7 +181,7 @@
     }
 
     .hero-card {
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 0.95);
       border-radius: 18px;
       padding: 16px;
       border: 1px solid rgba(148, 163, 184, 0.5);
@@ -189,7 +193,7 @@
       font-size: 14px;
       font-weight: 600;
       margin-bottom: 6px;
-      color: #bbf7d0;
+      color: #fed7aa;
     }
 
     .hero-etiquetas {
@@ -220,11 +224,12 @@
     section h2 {
       font-size: 22px;
       margin: 0 0 6px;
+      color: #f9fafb;
     }
 
     section p {
       font-size: 14px;
-      color: #d1d5db;
+      color: #e5e7eb;
       margin: 0 0 12px;
     }
 
@@ -239,9 +244,10 @@
       letter-spacing: 0.09em;
       padding: 3px 8px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      color: #9ca3af;
+      border: 1px solid rgba(248, 250, 252, 0.3);
+      color: #fed7aa;
       margin-bottom: 6px;
+      background: rgba(15, 23, 42, 0.8);
     }
 
     /* CATEGORÍAS */
@@ -261,7 +267,7 @@
     .categoria h3 {
       margin: 0 0 4px;
       font-size: 15px;
-      color: #e5e7eb;
+      color: #f9fafb;
     }
 
     .categoria small {
@@ -273,7 +279,7 @@
       margin: 8px 0 0;
       padding-left: 16px;
       font-size: 13px;
-      color: #d1d5db;
+      color: #e5e7eb;
     }
 
     /* PRODUCTOS DESTACADOS */
@@ -297,6 +303,7 @@
     .producto-nombre {
       font-size: 14px;
       font-weight: 600;
+      color: #f9fafb;
     }
 
     .producto-etiquetas {
@@ -309,13 +316,13 @@
     .producto-etiquetas span {
       padding: 3px 7px;
       border-radius: 999px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
+      border: 1px solid rgba(75, 85, 99, 0.9);
     }
 
     .precio {
       font-weight: 700;
       font-size: 16px;
-      color: #4ade80;
+      color: #f97316;
     }
 
     .nota-stock {
@@ -358,6 +365,7 @@
       display: block;
       margin-bottom: 4px;
       font-size: 14px;
+      color: #f9fafb;
     }
 
     /* CONTACTO */
@@ -386,12 +394,12 @@
 
     .contacto-datos span {
       font-weight: 600;
-      color: #e5e7eb;
+      color: #f9fafb;
     }
 
     .horario {
       font-size: 13px;
-      color: #d1d5db;
+      color: #e5e7eb;
     }
 
     footer {
@@ -399,8 +407,11 @@
       font-size: 12px;
       text-align: center;
       padding: 12px;
-      color: #6b7280;
+      color: #9ca3af;
+      background: #020617;
     }
+  </style>
+
   </style>
 </head>
 <body>
@@ -408,7 +419,10 @@
     <div class="contenedor">
       <div class="nav">
         <div class="logo">
-          Pike<span>Zone</span> Shop
+          <div class="logo">
+  <img src="logo-pikezone.png" alt="Pike Zone" style="height:120px; vertical-align:middle;">
+</div>
+
         </div>
         <div class="nav-links">
           <a href="#productos">Productos</a>
